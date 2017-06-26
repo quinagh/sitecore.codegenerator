@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.CodeGenerator", "Sitecore.CodeGenerator\Sitecore.CodeGenerator.csproj", "{97696946-CFED-49DB-AB8D-53431E48E3DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.CodeGenerator.Sample.Glass", "Sitecore.CodeGenerator.Sample.Glass\Sitecore.CodeGenerator.Sample.Glass.csproj", "{192E52C3-52AB-4072-8B73-626B57ECC2C8}"

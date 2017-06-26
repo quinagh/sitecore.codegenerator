@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{192E52C3-52AB-4072-8B73-626B57ECC2C8}</ProjectGuid>
+    <ProjectGuid>{E19E5456-1E45-4198-9531-F6CE8F1AE319}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sitecore.CodeGenerator.Sample.Glass</RootNamespace>
-    <AssemblyName>Sitecore.CodeGenerator.Sample.Glass</AssemblyName>
+    <RootNamespace>Sitecore.CoreGenerator.Glass</RootNamespace>
+    <AssemblyName>Sitecore.CoreGenerator.Glass</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,18 +50,35 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Collections.Immutable.1.3.1\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\GeneralExtensions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralExtensions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\glassv3header.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>glassv3header.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\glassv3item.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>glassv3item.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Helpers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Helpers.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IAnimal.gen.cs">
       <DependentUpon>SampleScriptTemplates.tt</DependentUpon>
     </Compile>
@@ -75,20 +91,28 @@
     <Compile Include="Models\INameable.gen.cs">
       <DependentUpon>SampleScriptTemplates.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Inflector.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inflector.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemPaths.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItemPaths.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StringExtensions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringExtensions.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <Content Include="Models\SampleScriptTemplates.tt">
+    <Content Include="Data\Unicorn\Readme.txt" />
+    <Content Include="Models\GeneralExtensions.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SampleScriptTemplates.gen.txt</LastGenOutput>
-      <LastOutputs>
-.\IAnimal.gen.cs
-.\IDog.gen.cs
-.\IFood.gen.cs
-.\INameable.gen.cs
-.\SampleScriptTemplates.gen.txt
-</LastOutputs>
+      <LastGenOutput>GeneralExtensions.cs</LastGenOutput>
     </Content>
     <Content Include="Models\GlassGenerator.tt">
       <LastGenOutput>GlassGenerator.cs</LastGenOutput>
@@ -96,25 +120,46 @@
     <Content Include="Models\GlassMappedClassTemplate.tt">
       <LastGenOutput>GlassMappedClassTemplate.cs</LastGenOutput>
     </Content>
-    <None Include="packages.config" />
+    <Content Include="Models\glassv3header.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>glassv3header.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\glassv3item.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>glassv3item.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Helpers.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Helpers.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Inflector.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Inflector.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ItemPaths.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ItemPaths.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SampleScriptTemplates.gen.txt">
+      <DependentUpon>SampleScriptTemplates.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="Models\SampleScriptTemplates.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SampleScriptTemplates.gen.txt</LastGenOutput>
+    </Content>
+    <Content Include="Models\StringExtensions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StringExtensions.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\serialization\Readme.txt" />
-    <Content Include="Data\Unicorn\Readme.txt" />
-    <Content Include="Models\SampleScriptTemplates.gen.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SampleScriptTemplates.tt</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Sitecore.CodeGenerator\Sitecore.CodeGenerator.csproj">
-      <Project>{97696946-cfed-49db-ab8d-53431e48e3da}</Project>
-      <Name>Sitecore.CodeGenerator</Name>
-    </ProjectReference>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
