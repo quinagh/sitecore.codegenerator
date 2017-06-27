@@ -58,6 +58,7 @@
     <Compile Include="Domain\TemplateField.cs" />
     <Compile Include="Domain\TemplateItem.cs" />
     <Compile Include="Domain\TemplateSection.cs" />
+    <Compile Include="Inflector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\SerializedIdToPathResolver.cs" />
     <Compile Include="Serialization\SerializedIdToPathSet.cs" />
