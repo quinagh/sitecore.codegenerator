@@ -66,6 +66,9 @@
     <Compile Include="Models\IAnimal.gen.cs">
       <DependentUpon>SampleScriptTemplates.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IBaseStuff.gen.cs">
+      <DependentUpon>SampleScriptTemplates.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IDog.gen.cs">
       <DependentUpon>SampleScriptTemplates.tt</DependentUpon>
     </Compile>
@@ -79,11 +82,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="Models\GlassInterfaceTemplate.tt" />
     <Content Include="Models\SampleScriptTemplates.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SampleScriptTemplates.gen.txt</LastGenOutput>
       <LastOutputs>
 .\IAnimal.gen.cs
+.\IBaseStuff.gen.cs
 .\IDog.gen.cs
 .\IFood.gen.cs
 .\INameable.gen.cs

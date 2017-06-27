@@ -1,0 +1,95 @@
+﻿<#@ assembly name="System.Core" #>
+
+<#@ import namespace="System" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Sitecore.CodeGenerator.Domain" #>
+<#@ import namespace="System.Linq" #>
+
+<#+
+public class GlassInterfaceTemplate : CSharpTemplate
+{
+	public TemplateItem Template { get; set; }
+
+	
+	public override string TransformText()
+	{
+		base.TransformText();
+#>
+
+#pragma warning disable 1591
+#pragma warning disable 0108
+using System;   
+using Glass.Mapper.Sc.Configuration.Attributes;
+using Glass.Mapper.Sc.Configuration;
+using Sitecore.Globalization;
+using Sitecore.Data.Items;
+
+namespace <#=DefaultNamespace #>
+{
+
+    public partial interface IGlassBase{
+        
+        [SitecoreId]
+        Guid Id{ get; }
+
+        [SitecoreInfo(SitecoreInfoType.Name)]
+        string ItemName { get; }
+
+        [SitecoreInfo(SitecoreInfoType.Language)]
+        Language Language{ get; }
+
+        [SitecoreInfo(SitecoreInfoType.Version)]
+        int Version { get; }
+
+        [SitecoreInfo(SitecoreInfoType.Url)]
+        string Url { get; }
+
+        [SitecoreInfo(SitecoreInfoType.Path)]
+        string Path { get; set; }
+
+        [SitecoreInfo(SitecoreInfoType.TemplateId)]
+        Guid TemplateId { get; set; }
+
+        [SitecoreInfo(SitecoreInfoType.TemplateName)]
+        string TemplateName { get; set; }
+
+        [SitecoreItem]
+        Item Item { get; }
+    }
+
+    public abstract partial class GlassBase : IGlassBase{
+        
+        [SitecoreId]
+        public virtual Guid Id{ get; private set;}
+
+        [SitecoreInfo(SitecoreInfoType.Name)]
+        public string ItemName { get; private set; }
+
+        [SitecoreInfo(SitecoreInfoType.Language)]
+        public virtual Language Language{ get; private set; }
+
+        [SitecoreInfo(SitecoreInfoType.Version)]
+        public virtual int Version { get; private set; }
+
+        [SitecoreInfo(SitecoreInfoType.Url)]
+        public virtual string Url { get; private set; }
+
+        [SitecoreInfo(SitecoreInfoType.Path)]
+        public virtual string Path { get; set; }
+
+        [SitecoreInfo(SitecoreInfoType.TemplateId)]
+        public Guid TemplateId { get; set; }
+
+        [SitecoreInfo(SitecoreInfoType.TemplateName)]
+        public string TemplateName { get; set; }
+
+        [SitecoreItem]
+        public virtual Item Item { get; private set; }
+    }
+}
+<#+
+        return this.GenerationEnvironment.ToString();
+	}
+}
+#>

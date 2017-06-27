@@ -5,6 +5,8 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="Glass.Mapper.Sc.Fields" #>
 <#@ include file="GlassMappedClassTemplate.tt" #>
+<#@ include file="GlassInterfaceTemplate.tt" #>
+
 <#+
 // <copyright file="GlassGenerator.tt" company="">
 //  Copyright © . All Rights Reserved.
@@ -19,6 +21,8 @@ public class FieldOptions
 public class GlassGenerator : Generator
 {
 	public GlassMappedClassTemplate GlassTemplate { get; private set; }
+
+	public GlassInterfaceTemplate foo { get; private set;}
 
 	private Action<string,FieldOptions> SetCustomOptionsFunction { get; set; }
 
@@ -44,8 +48,17 @@ public class GlassGenerator : Generator
 			Context.Host.ResolvePath(@"..\Data\Unicorn\"),
 			Paths,
 			Database);
+
+
+			this.foo = new GlassInterfaceTemplate();
+			this.foo.RenderToFile("IBaseStuff.gen.cs");
+
+
 		foreach(var template in resolver.Templates)
 		{
+			
+
+
 			this.GlassTemplate.Template = template;
 			this.GlassTemplate.GetFieldOptionsFunction = GetFieldOptions;
 			string fileName = string.Concat("I", this.GlassTemplate.Identifier(template.SyncItem.Name), ".gen.cs");

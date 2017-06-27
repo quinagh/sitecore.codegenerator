@@ -30,4 +30,5 @@
 	{
 		WriteLine(string.Concat("- ", file));
 	}
+	WriteLine(DateTime.Now.ToString());
 #>

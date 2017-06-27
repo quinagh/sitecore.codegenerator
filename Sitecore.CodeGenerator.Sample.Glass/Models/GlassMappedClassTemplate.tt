@@ -1,5 +1,5 @@
 ﻿<#@ assembly name="System.Core" #>
-<#@ assembly name="$(SolutionDir)packages\Sitecore.Kernel.NoReferences.8.2.170407\lib\NET452\Sitecore.Kernel.dll" #>
+
 <#@ import namespace="Sitecore.CodeGenerator.Domain" #>
 <#@ import namespace="System.Linq" #>
 <#+
@@ -25,15 +25,18 @@ public class GlassMappedClassTemplate : CSharpTemplate
 
 		base.TransformText();
 #>
+
+
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using global::Glass.Mapper.Sc.Configuration;
+using global::Glass.Mapper.Sc.Configuration.Attributes;
+using global::Glass.Mapper.Sc.Fields;
+
 namespace <#= DefaultNamespace #>
 {
-	using System;
-    using System.Collections.Generic;
-	using System.Collections.Specialized;
-    using global::Glass.Mapper.Sc.Configuration;
-    using global::Glass.Mapper.Sc.Configuration.Attributes;
-	using global::Glass.Mapper.Sc.Fields;
-
+	
 	/// <summary>
 	/// Represents a mapped type for item <#= Template.SyncItem.ID #> in Sitecore.
 	/// Path: <#= Template.SyncItem.ItemPath #>
