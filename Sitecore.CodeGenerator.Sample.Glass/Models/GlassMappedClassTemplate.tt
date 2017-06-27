@@ -20,7 +20,7 @@ public class GlassMappedClassTemplate : CSharpTemplate
 		}
 		else
 		{
-			this.Extends = string.Empty; //" : IModelBase";
+			this.Extends = string.Empty + " : IGlassBase";
 		}
 
 		base.TransformText();

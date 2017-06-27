@@ -7,16 +7,10 @@
 #pragma warning disable 1591
 #pragma warning disable 0108
 using System;   
-using System.Collections.Generic;   
-using System.Linq;
-using System.Text;
 using Glass.Mapper.Sc.Configuration.Attributes;
 using Glass.Mapper.Sc.Configuration;
-using Glass.Mapper.Sc.Fields;
 using Sitecore.Globalization;
-using Sitecore.Data;
 using Sitecore.Data.Items;
-using SystemSpecialized = System.Collections.Specialized;
 
 namespace Sitecore.CodeGenerator.Sample.Glass.Models
 {

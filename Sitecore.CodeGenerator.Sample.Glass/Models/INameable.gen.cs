@@ -20,7 +20,7 @@ namespace Sitecore.CodeGenerator.Sample.Glass.Models
 	/// Path: /sitecore/templates/Sitecore Code Generator Sample/Nameable
 	/// </summary>
 	[SitecoreType(TemplateId = "{2852DE45-BF36-44D8-9435-8A30EC6923C5}")]
-	public partial interface INameable
+	public partial interface INameable : IGlassBase
 	{
 		#region Name
 

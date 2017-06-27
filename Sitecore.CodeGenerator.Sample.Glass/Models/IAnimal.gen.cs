@@ -20,7 +20,7 @@ namespace Sitecore.CodeGenerator.Sample.Glass.Models
 	/// Path: /sitecore/templates/Sitecore Code Generator Sample/Animal
 	/// </summary>
 	[SitecoreType(TemplateId = "{319EB0A2-EF28-4DAE-B35C-551BD53317B2}")]
-	public partial interface IAnimal
+	public partial interface IAnimal : IGlassBase
 	{
 		#region Animal
 

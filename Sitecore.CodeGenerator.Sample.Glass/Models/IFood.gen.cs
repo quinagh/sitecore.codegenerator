@@ -20,7 +20,7 @@ namespace Sitecore.CodeGenerator.Sample.Glass.Models
 	/// Path: /sitecore/templates/Sitecore Code Generator Sample/Food
 	/// </summary>
 	[SitecoreType(TemplateId = "{7196E22C-0B26-4539-BAEE-959ED8C5BFE5}")]
-	public partial interface IFood
+	public partial interface IFood : IGlassBase
 	{
 		#region Nutrition
 
